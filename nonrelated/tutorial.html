@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My web page</title>
+</head>
+<body>
+    <nav>
+        <a href="/about/">About</a>
+        <a href="/contact-us/">Contact Us</a>
+        <a href="/store/">Visit Store</a>
+    </nav>
+    <h1> Welcome </h1>
+    <h2>This is the main page </h2>
+    <p> <b>Hello, this is our first web page. </b> </p>
+    <img src="../static/image.png" style="width:500px; height:400px">
+    <img src="{{ url_for('static', filename='image.png') }}" style="width:500px">
+    <br>
+    <br>
+    <a href="https://www.google.com">Open Google</a>
+</body>
+</html>
