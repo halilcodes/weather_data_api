@@ -8,11 +8,28 @@
     <nav>
         <a href="/api/v1/10/19881025"> Example Temp URL</a>
         <a href="/api/v2/wife"> Example Dictionary v1 URL</a>
+        <a href="/api/v3/wife"> Example Dictionary v2 URL</a>
 
     </nav>
     <h1>Welcome to the HomePage</h1>
+
     <h2> Weather Data API</h2>
     <p>URL Format: http://127.0.0.1:5000/api/v1/station/date</p>
     <p>URL Example: http://127.0.0.1:5000/api/v1/10/1988-10-25 </p>
+    <p>URL Format (all dates): http://127.0.0.1:5000/api/v1/station</p>
+    <p>URL Example (all dates) : http://127.0.0.1:5000/api/v1/10 </p>
+    <p>URL Format (all year): http://127.0.0.1:5000/api/v1/annual/station/year</p>
+    <p>URL Example (all year) : http://127.0.0.1:5000/api/v1/annual/10/1999 </p>
+
+    <h2> Dictionary v1 API</h2>
+    <p>URL Format: http://127.0.0.1:5000/api/v2/word </p>
+    <p>URL Example: http://127.0.0.1:5000/api/v2/wife </p>
+
+    <h2> Dictionary v2 API</h2>
+    <p>URL Format: http://127.0.0.1:5000/api/v3/word </p>
+    <p>URL Example: http://127.0.0.1:5000/api/v3/wife </p>
+
+    <p>{{ data | safe }}</p>
+
 </body>
 </html>
