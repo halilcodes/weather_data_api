@@ -1,6 +1,8 @@
 from flask import Flask, render_template
 import pandas as pd
 import requests
+import datetime as dt
+import numpy as np
 
 app = Flask(__name__)
 
@@ -12,11 +14,16 @@ def home():
 
 @app.route("/api/v1/<station>/<date>")
 def about(station, date):
-    # df = pd.read_csv()
-    # temperature = df.station(date)
-    temperature = 23
+    df = pd.read_csv(f"data_small/TG_STAID" + str(station).zfill(6) + ".txt", skiprows=20, parse_dates=['    DATE'])
+    date_formatted = dt.datetime.strptime(date, "%Y-%m-%d")
+    data_quality = df.loc[df['    DATE'] == date_formatted][' Q_TG'].squeeze()
+    if data_quality != 9:
+        temperature = df.loc[df['    DATE'] == date_formatted]['   TG'].squeeze() / 10
+    else:
+        temperature = np.nan
+    # temperature = 23
     return {"station": station,
-            "date": date,
+            "date": dt.datetime.strftime(date_formatted, "%Y-%m-%d"),
             "temperature": temperature}
 
 
